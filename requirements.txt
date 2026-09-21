@@ -1,0 +1,28 @@
+# Pinned for reproducibility:
+#   - transformers 4.54.1: required by both Huginn (raven_modeling_minimal.py)
+#     and Ouro (ByteDance docs: "use transformers<4.56.0, recommend 4.54.1 or earlier")
+#   - torch: not pinned here — Docker base image provides it (need >=2.5 for
+#     flex_attention import in Huginn's modeling)
+# torch==2.3.1   # (local-only legacy pin; Docker overrides via base image)
+
+transformers==4.54.1
+accelerate>=0.34
+datasets>=2.20
+huggingface-hub>=0.24
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+tqdm>=4.66
+
+# lm-eval (math grader for MATH-500: exact_match via sympy + math_verify)
+# and evalplus (HumanEval+ / MBPP+ test runner). Pip handles all transitive
+# deps (sympy, math_verify, antlr4, tree_sitter, sacrebleu, etc.).
+#
+# We also vendor matching source under third_party/ which takes precedence
+# via PYTHONPATH — pip-install is only to populate transitive runtime deps.
+lm-eval[math]==0.4.9.2
+evalplus
+
+# Optional (analysis / notebook)
+jupyter
+pandas

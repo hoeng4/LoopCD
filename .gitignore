@@ -1,0 +1,35 @@
+# venv
+.venv/
+venv/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# HF cache
+.cache/
+
+# runs and logs (users generate these)
+runs/
+logs/
+*.log
+
+# ipynb checkpoints
+.ipynb_checkpoints/
+
+# editor
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# datasets fetched at setup time (see table1_analysis/README.md)
+loopcd/eval/data/
+
+# kept in the working tree but intentionally untracked for now; renumber it
+# into place and re-add with:
+#   mv analysis/_parked_table1_token_replacement analysis/1_table1_token_replacement
+#   git add -f analysis/1_table1_token_replacement
+analysis/_parked_*/
